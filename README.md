@@ -1,7 +1,4 @@
 # Generations-Capstone-NHL-Analytics
-A full end-to-end data pipeline project — from ingesting raw NHL game data via KaggleHub, to transforming and modeling it in Microsoft Fabric, and visualizing key player and team insights in Power BI.
-
-# End-to-End Data Pipeline: [Project Title]
 
 ## 🚀 Overview
 This project demonstrates a complete data engineering workflow — from raw data ingestion to visualization in Power BI — using Microsoft Fabric, SQL, and Python.
