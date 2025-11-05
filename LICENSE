@@ -1,0 +1,68 @@
+This project is licensed under the MIT License
+.
+
+
+---
+
+## 📁 **2. `data/raw/README.md`**
+
+Add this inside `data/raw/` to explain your dataset handling policy.
+
+```markdown
+# 📂 Raw Data Folder
+
+This folder stores the **original unmodified data** sourced from Kaggle.
+
+**Dataset:** [NHL Game Data (martinellis/nhl-game-data)](https://www.kaggle.com/datasets/martinellis/nhl-game-data)
+
+- ⚠️ Raw data files are **not committed** to GitHub to respect Kaggle’s licensing terms.
+- You can re-download them using the provided ingestion script:
+  ```bash
+  python src/ingest/ingest_data.py
+
+
+Processed versions of this data will be saved under data/processed/ for analysis.
+
+
+---
+
+## 🐍 **3. `src/ingest/ingest_data.py`**
+
+Here’s a production-friendly version of your ingest script, customized for Microsoft Fabric + Azure SQL:
+
+```python
+"""
+Ingest NHL Game Data from Kaggle using KaggleHub.
+Saves dataset to local Fabric Lakehouse folder and prepares for transformation.
+"""
+
+import os
+import pandas as pd
+import kagglehub
+
+# === CONFIG ===
+DATASET_NAME = "martinellis/nhl-game-data"
+OUTPUT_DIR = "../../data/raw/"
+FILE_PATH = ""  # optional: specify a particular file in the dataset
+
+# === MAIN LOGIC ===
+def ingest_kaggle_data():
+    print("🚀 Starting data ingestion from Kaggle...")
+    df = kagglehub.load_dataset(
+        kagglehub.KaggleDatasetAdapter.PANDAS,
+        DATASET_NAME,
+        FILE_PATH
+    )
+
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    output_file = os.path.join(OUTPUT_DIR, "nhl_games_raw.csv")
+
+    df.to_csv(output_file, index=False)
+    print(f"✅ Data saved to: {output_file}")
+    print(f"📊 Total records: {len(df)}")
+
+    return df
+
+
+if __name__ == "__main__":
+    ingest_kaggle_data()
