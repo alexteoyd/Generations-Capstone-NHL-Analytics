@@ -1,4 +1,4 @@
-# 🏒 [Generations Capstone Project] NHL Game Data Pipeline — End-to-End Data Engineering in Microsoft Fabric 
+# 🏒 :Generations Capstone Project: NHL Game Data Pipeline — End-to-End Data Engineering in Microsoft Fabric 
 
 This project demonstrates a **complete end-to-end data pipeline** built on **Microsoft Fabric**, using the *NHL Game Data* dataset from Kaggle.  
 It covers the full data lifecycle — from raw data ingestion to analytics visualization — leveraging **Python**, **SQL**, **Azure SQL Database**, and **Power BI**.
@@ -30,7 +30,8 @@ It covers the full data lifecycle — from raw data ingestion to analytics visua
 ---
 
 ## 📂 Repository Structure
-
+<pre>
+  
 📦 nhl-data-pipeline/
 │
 ├── data/ # Datasets (anonymized or sample)
@@ -69,6 +70,9 @@ It covers the full data lifecycle — from raw data ingestion to analytics visua
 ├── LICENSE
 ├── .gitignore
 └── README.md
+
+</pre>
+---
 
 
 ## 🔧 Tech Stack
